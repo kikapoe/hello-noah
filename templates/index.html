@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.ss {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  height: 1000;
+  width: 1000;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: hidden;
+}
+.video-container video {
+  /* Make video to at least 100% wide and tall */
+  min-width: 100%; 
+  min-height: 100%; 
+
+  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+  width: auto;
+  height: auto;
+
+  /* Center the video */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+body{
+  margin:0px
+}
+</style>
+</head>
+<body>
+  <div class="video-container">
+      <video width="100vw" height="100vh"  loop autoplay muted>
+        <source src="static/Eye_Emotion_Standby.mp4"type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+  </div>
+  <img class="ss" src="{{ url_for('rec') }}">
+</body>
+
+</html>

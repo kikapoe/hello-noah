@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style>
+    .grid-container>div {
+      background-color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 20px 0;
+      font-size: 30px;
+    }
+
+    .grid-header>div {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 30px;
+    }
+
+    /* each department */
+    .block {
+      display: block;
+      width: 100%;
+      height: 4rem;
+      border-image: linear-gradient(to bottom, #3da0fd, #2171ec);
+      border-image-slice: 1;
+      background-image: linear-gradient(to bottom, #1f78ee, #38a1fd);
+      box-shadow: 0px 7px 10px rgba(26, 26, 26, 0.6);
+      transform: translateY(-7px);
+      /* background-color: #17a2b8; */
+      border-radius: 10px;
+      /* padding: 14px 28px; */
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+      justify-items: center;
+    }
+
+    .block:hover {
+      background-image: linear-gradient(to bottom, #ddd, #ddd);
+      color: black;
+      border-image: linear-gradient(to bottom, #ddd, #ddd);
+      /* border-color: #ddd; */
+    }
+
+    /* Departments */
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-row-gap: 4rem;
+      grid-column-gap: 1rem;
+      padding: 10px;
+      height: 550px;
+      justify-items: center;
+      align-items: center;
+      margin-top: 20px;
+      grid-template-columns: 200px repeat(4, 1fr) 200px;
+      /* set dimension size */
+      grid-template-rows: repeat(3, 40px);
+      /* set dimension size */
+    }
+
+    .grid-container>div {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 30px;
+    }
+
+    .btn1 {
+      grid-column-end: 2;
+    }
+
+    .ss {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      height: 1000;
+      width: 1000;
+    }
+
+    .logo-dial {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      caret-color: transparent;
+    }
+
+
+    #call-img-logo {
+      display: block;
+      height: 500px;
+      width: auto;
+      margin: auto;
+      margin-top: 60px;
+      caret-color: transparent;
+    }
+
+
+    .btn-end {
+      display: block;
+      border: none;
+      background-color: #d41f00;
+      border-radius: 40px;
+      color: white;
+      padding: 12.944px 103.554px;
+      font-size: 25.88854px;
+      cursor: pointer;
+      text-align: center;
+      justify-content: center;
+      margin: auto;
+    }
+
+    /* Previous */
+    .item-a {
+      grid-row-start: 1;
+      grid-row-end: 4;
+      grid-column-start: 1;
+      grid-column-end: 2;
+    }
+
+    /* Next */
+    .item-b {
+      grid-row-start: 1;
+      grid-row-end: 4;
+      grid-column-start: 6;
+      grid-column-end: 7;
+    }
+
+    #btkk-logo {
+      position: relative;
+      width: 200px;
+      margin: 2rem;
+      height: auto;
+    }
+
+    /* Header text */
+    .topic-text-container {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
+      padding: 0;
+      margin: 2rem;
+    }
+
+    .vl {
+      border-left: 6px solid rgb(80, 80, 80);
+      height: auto;
+      margin: 2rem 0px 2rem 0px;
+    }
+
+    /* Header */
+    .header-topic {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      margin: 5rem 0px 4rem 0px;
+    }
+
+    .arrow{
+      height: 50px;
+      width: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="topic" class="header-topic">
+    <img id="btkk-logo" src="../assets/logo.png">
+    <div class="vl"></div>
+    <div class="topic-text-container">
+      <h2 class="topic">กรุณาเลือกแผนกที่คุณต้องการติดต่อ</h2>
+      <h2 class="topic">Please select the department you would like to contact.</h2>
+    </div>
+  </div>
+
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div id="btn-dep-1" class="grid-container">
+          <div class=" item-a ">
+            <img class="arrow" src="../images/left-arrow.png" alt="">
+          </div>
+          <button class=" block" onclick="dial()">ACC</button>
+          <button class=" block">APQP</button>
+          <button class=" block">BPD</button>
+          <button class=" block">CED</button>
+          <button class=" block">CGD</button>
+          <button class=" block">EXE</button>
+          <button class=" block">GAD</button>
+          <button class=" block">GDC</button>
+          <button class=" block">HRM</button>
+          <button class=" block">ICT</button>
+          <button class=" block">LGS</button>
+          <button class=" block">MAD</button>
+          <div class=" item-b">
+            <img class="arrow" src="../images/right-arrow.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div id="btn-dep-2" class="grid-container">
+          <div class=" item-a ">
+            <img class="arrow" src="../images/left-arrow.png" alt="">
+          </div>
+          <button class=" block" onclick="dial()">MTN</button>
+          <button class=" block">PCS</button>
+          <button class=" block">PED</button>
+          <button class=" block">PCL</button>
+          <button class=" block">PSD</button>
+          <button class=" block">PUR</button>
+          <button class=" block">QAD</button>
+          <button class=" block">QCD</button>
+          <button class=" block">QMS</button>
+          <button class=" block">RND</button>
+          <button class=" block">SHE</button>
+          <button class=" block">SNM</button>
+          <div class=" item-b">
+            <img class="arrow" src="../images/right-arrow.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div id="btn-dep-3" class="grid-container">
+          <div class=" item-a ">
+            <img class="arrow" src="../images/left-arrow.png" alt="">
+          </div>
+          <button class=" block" onclick="dial()">TLD</button>
+          <button class=" block">TPM</button>
+          <button class=" block">UTT</button>
+          <button class=" block">PD1</button>
+          <button class=" block">PD2</button>
+          <button class=" block">PD3</button>
+          <button class=" block">PD4</button>
+          <button class=" block">PD5</button>
+          <button class=" block">PD7</button>
+          <div class=" item-b">
+            <img class="arrow" src="../images/right-arrow.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span> -->
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span> -->
+    </a>
+  </div>
+
+  <!-- <div id="btn-dep" class="grid-container">
+    <div class=" item-a ">1</div>
+    <button class=" block" onclick="dial()">ACC</button>
+    <button class=" block">APQP</button>
+    <button class=" block">BPD</button>
+    <button class=" block">CED</button>
+    <button class=" block">CGD</button>
+    <button class=" block">EXE</button>
+    <button class=" block">GAD</button>
+    <button class=" block">GDC</button>
+    <button class=" block">HRM</button>
+    <button class=" block">ICT</button>
+    <button class=" block">LGS</button>
+    <button class=" block">MAD</button>
+    <button class=" block">HRM</button>
+    <button class=" block">ICT</button>
+    <button class=" block">LGS</button>
+    <button class=" block">MAD</button>
+    <div class=" item-b  ">1</div>
+  </div> -->
+
+
+
+  <div id='call-img' class="logo-dial">
+    <img id='call-img-logo' src="../static/ring_ring.gif">
+  </div>
+
+  <div style="margin-top: 30px;">
+    <button id="endcall" class="btn-end">End Call</button>
+  </div>
+
+  <button id="ini-btn" onclick="test()">initial</button>
+  <!--<img src="{{ url_for('rec') }}">-->
+
+  <!-- ajax -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- js -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+
+  <script>
+
+    window.onload = function () {
+      document.getElementById('call-img').style.display = "none";
+      document.getElementById('endcall').style.display = "none";
+      document.getElementById('ini-btn').click(); // เปลี่ยนตรงนี้เป็น id ของปุ่ม initial
+      var scriptTag = document.createElement("script");
+      scriptTag.src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js";
+      document.getElementsByTagName("head")[0].appendChild(scriptTag);
+      document.getElementById('ini-btn').style.display = "none";  // คลิกเสร็จแล้วซ่อน
+    }
+    function test() {
+      //alert("initial clicked");
+    }
+
+    function dial() {
+      var topic = document.getElementById("topic");
+      var dep1 = document.getElementById("btn-dep-1");
+      var dep2 = document.getElementById("btn-dep-2");
+      var dep3 = document.getElementById("btn-dep-3");
+      var ini = document.getElementById("ini-btn");
+      var end = document.getElementById("endcall");
+      var body = document.getElementsByTagName("body")[0];
+      topic.style.display = "none";
+      dep1.style.display = "none";
+      dep2.style.display = "none";
+      dep3.style.display = "none";
+      ini.style.display = "none";
+      end.style.display = "block";
+      body.style.backgroundColor = "#2973d9";
+      document.getElementById('call-img').style.display = "block";
+
+    }
+  </script>
+
+</body>
+
+</html>
