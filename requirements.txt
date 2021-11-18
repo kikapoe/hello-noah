@@ -11,3 +11,4 @@ opencv-contrib-python==4.5.4.58
 Pillow==8.4.0
 pygame==2.1.0
 Werkzeug==2.0.2
+gunicorn
