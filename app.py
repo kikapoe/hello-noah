@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, Response, redirect,  url_for
+from flask import Flask, render_template, Response, redirect,  url_for, jsonify, request
 import cv2
 import face_recognition
 import numpy as np
@@ -11,14 +11,37 @@ import webbrowser
 from PIL import Image
 from os import listdir
 from os.path import isfile, join
+from dotenv import load_dotenv
+from faker import Faker
+#from flask import Flask, Response, jsonify, redirect, request, url_for
+from twilio.jwt.access_token import AccessToken
+from twilio.jwt.access_token.grants import VoiceGrant
+from twilio.twiml.voice_response import Dial, VoiceResponse
+from selenium import webdriver
+
+import os
+import re
+
 
 app = Flask(__name__, static_folder='static')
+load_dotenv()
+
+app = Flask(__name__)
+fake = Faker()
+alphanumeric_only = re.compile("[\W_]+")
+phone_pattern = re.compile(r"^[\d\+\-\(\) ]+$")
+
+twilio_number = os.environ.get("TWILIO_CALLER_ID")
+
+# Store the most recently created identity in memory for routing calls
+IDENTITY = {"identity": ""}
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 path = os.path.abspath('dataset')
 # path = os.path.abspath('C:\\Users\\akkap\\Documents\\Noah\\Face_rec\\dataset')
 print(os.path.dirname(os.path.abspath(__file__)))
 
+driver = webdriver.Chrome('http://localhost:5000/')
 
 def getImageWithID(path):
     imagePaths = [os.path.join(path, f) for f in os.listdir(path)]
@@ -46,7 +69,7 @@ recognizer.train(faces, np.array(Ids))
 print(recognizer.write('trainingData.yml'))
 cv2.destroyAllWindows()
 
-video_capture = cv2.VideoCapture(0)
+## video_capture = cv2.VideoCapture(0)
 bgVDO = cv2.VideoCapture("video/Eye_Emotion_Standby.mp4")
 
 # faceDetect = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -74,7 +97,7 @@ process_this_frame = True
 
 
 def classify_face():
-    
+    video_capture = cv2.VideoCapture(0)
     voice_dir = "./assets/NOAH - Voice for TBKK/TBKK - Thai 35 Users"
     voice_list = [f for f in listdir(voice_dir) if isfile(join(voice_dir, f))]
 
@@ -148,7 +171,9 @@ def classify_face():
                 print("say hi :", sameface_name)
                 sameface = False
                 sameface_name = ""
-
+                
+            
+##
             if (time.time() - start_time > period_time) and sameface and sameface_name == "unknown" and sameface_name:
                 mixer.init()
                 mixer.music.load("voice/Hello.mp3")
@@ -158,9 +183,10 @@ def classify_face():
                 sameface = False
                 sameface_name = ""
                 webbrowser.open(
-                    'https://voice-call-python.herokuapp.com', new=0)
-                return
-            ## cv2.imshow("Faces", frame)
+                    'http://localhost:5000/department')
+                    #'https://voice-call-python.herokuapp.com', new=0)
+                return  
+            # cv2.imshow("Faces", frame)
             # if(cv2.waitKey(1) == ord('q')):
             #     break
             # pass
@@ -195,7 +221,9 @@ def index():
 
 @app.route('/department')
 def department():
-    return render_template('department.html',)
+   ## return app.send_static_file("department.html")
+    return render_template("department.html")
+ # return render_template('department.html',)
 
 
 @app.route('/recording')
@@ -205,6 +233,59 @@ def rec():
 # @app.route('/ss')
 # def ss():
 #     return Response(screen_server(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route("/token", methods=["GET"])
+def token():
+    # get credentials for environment variables
+    account_sid = os.environ["TWILIO_ACCOUNT_SID"]
+    application_sid = os.environ["TWILIO_TWIML_APP_SID"]
+    api_key = os.environ["API_KEY"]
+    api_secret = os.environ["API_SECRET"]
+
+    # Generate a random user name and store it
+    identity = alphanumeric_only.sub("", fake.user_name())
+    IDENTITY["identity"] = identity
+
+    # Create access token with credentials
+    token = AccessToken(account_sid, api_key, api_secret, identity=identity)
+
+    # Create a Voice grant and add to token
+    voice_grant = VoiceGrant(
+        outgoing_application_sid=application_sid,
+        incoming_allow=True,
+    )
+    token.add_grant(voice_grant)
+
+    # Return token info as JSON
+    token = token.to_jwt()
+
+    # Return token info as JSON
+    return jsonify(identity=identity, token=token)
+
+
+@app.route("/voice", methods=["POST"])
+def voice():
+    resp = VoiceResponse()
+    if request.form.get("To") == twilio_number:
+        # Receiving an incoming call to our Twilio number
+        dial = Dial()
+        # Route to the most recently created client based on the identity stored in the session
+        dial.client(IDENTITY["identity"])
+        resp.append(dial)
+    elif request.form.get("To"):
+        # Placing an outbound call from the Twilio client
+        dial = Dial(caller_id=twilio_number)
+        # wrap the phone number or client name in the appropriate TwiML verb
+        # by checking if the number given has only digits and format symbols
+        if phone_pattern.match(request.form["To"]):
+            dial.number(request.form["To"])
+        else:
+            dial.client(request.form["To"])
+        resp.append(dial)
+    else:
+        resp.say("Thanks for calling!")
+
+    return Response(str(resp), mimetype="text/xml")
 
 
 if __name__ == '__main__':

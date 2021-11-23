@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -58,10 +57,10 @@
       grid-row-gap: 4rem;
       grid-column-gap: 1rem;
       padding: 10px;
-      height: 550px;
+      height: 300px;
       justify-items: center;
       align-items: center;
-      margin-top: 20px;
+      margin-top: 5px;
       grid-template-columns: 200px repeat(4, 1fr) 200px;
       /* set dimension size */
       grid-template-rows: repeat(3, 40px);
@@ -166,17 +165,19 @@
       margin: 5rem 0px 4rem 0px;
     }
 
-    .arrow{
+    .arrow {
       height: 50px;
       width: auto;
+    }
+
+    body {
     }
   </style>
 </head>
 
-<body>
-
+<body> 
   <div id="topic" class="header-topic">
-    <img id="btkk-logo" src="../assets/logo.png">
+    <img id="btkk-logo" src="static/logo.png">
     <div class="vl"></div>
     <div class="topic-text-container">
       <h2 class="topic">กรุณาเลือกแผนกที่คุณต้องการติดต่อ</h2>
@@ -184,68 +185,74 @@
     </div>
   </div>
 
+
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div id="btn-dep-1" class="grid-container">
           <div class=" item-a ">
-            <img class="arrow" src="../images/left-arrow.png" alt="">
+            <img class="arrow" src="static/left-arrow.png" alt="">
           </div>
-          <button class=" block" onclick="dial()">ACC</button>
-          <button class=" block">APQP</button>
-          <button class=" block">BPD</button>
-          <button class=" block">CED</button>
-          <button class=" block">CGD</button>
-          <button class=" block">EXE</button>
-          <button class=" block">GAD</button>
-          <button class=" block">GDC</button>
-          <button class=" block">HRM</button>
-          <button class=" block">ICT</button>
-          <button class=" block">LGS</button>
-          <button class=" block">MAD</button>
+          <!-- #check list -->
+          <!-- Ok this row is working -->
+          <input id="phone-number" type="text" value="+66908916039" style="display:none" />
+          <button id="button-call" type="submit" class="block">ACC</button>
+          <button id ="APQP" class=" block">APQP</button>
+          <button id ="BPD" class=" block">BPD</button>
+          <button id ="CED" class=" block">CED</button>
+          <button id ="CGD" class=" block">CGD</button>
+          <button id ="EXE" class=" block">EXE</button>
+          <button id ="GAD" class=" block">GAD</button>
+          <button id ="GDC" class=" block">GDC</button>
+          <button id ="HRM" class=" block">HRM</button>
+          <button id ="ICT" class=" block">ICT</button>
+          <button id ="LGS" class=" block">LGS</button>
+          <button id ="MAD" class=" block">MAD</button>
           <div class=" item-b">
-            <img class="arrow" src="../images/right-arrow.png" alt="">
+            <img class="arrow" src="static/right-arrow.png" alt="">
           </div>
         </div>
       </div>
       <div class="carousel-item">
         <div id="btn-dep-2" class="grid-container">
           <div class=" item-a ">
-            <img class="arrow" src="../images/left-arrow.png" alt="">
+            <img class="arrow" src="static/left-arrow.png" alt="">
           </div>
-          <button class=" block" onclick="dial()">MTN</button>
-          <button class=" block">PCS</button>
-          <button class=" block">PED</button>
-          <button class=" block">PCL</button>
-          <button class=" block">PSD</button>
-          <button class=" block">PUR</button>
-          <button class=" block">QAD</button>
-          <button class=" block">QCD</button>
-          <button class=" block">QMS</button>
-          <button class=" block">RND</button>
-          <button class=" block">SHE</button>
-          <button class=" block">SNM</button>
+          <!--MTN  PCS PED PCL PSD PUR QAD QCD QMS RND SHE SNM-->
+          <button id="MTN" class=" block">MTN</button>
+          <button id="PCS" class=" block">PCS</button>
+          <button id="PED" class=" block">PED</button>
+          <button id="PCL" class=" block">PCL</button>
+          <button id="PSD" class=" block">PSD</button>
+          <button id="PUR" class=" block">PUR</button>
+          <button id="QAD" class=" block">QAD</button>
+          <button id="QCD" class=" block">QCD</button>
+          <button id="QMS" class=" block">QMS</button>
+          <button id="RND" class=" block">RND</button>
+          <button id="SHE" class=" block">SHE</button>
+          <button id="SNM" class=" block">SNM</button>
           <div class=" item-b">
-            <img class="arrow" src="../images/right-arrow.png" alt="">
+            <img class="arrow" src="static/right-arrow.png" alt="">
           </div>
         </div>
       </div>
       <div class="carousel-item">
         <div id="btn-dep-3" class="grid-container">
           <div class=" item-a ">
-            <img class="arrow" src="../images/left-arrow.png" alt="">
+            <img class="arrow" src="static/left-arrow.png" alt="">
           </div>
-          <button class=" block" onclick="dial()">TLD</button>
-          <button class=" block">TPM</button>
-          <button class=" block">UTT</button>
-          <button class=" block">PD1</button>
-          <button class=" block">PD2</button>
-          <button class=" block">PD3</button>
-          <button class=" block">PD4</button>
-          <button class=" block">PD5</button>
-          <button class=" block">PD7</button>
+          <!-- TLD TPM  UTT PD1 PD2 PD3 PD4 PD5 PD7-->
+          <button id="TLD" class=" block">TLD</button>
+          <button id="TPM" class=" block">TPM</button>
+          <button id="UTT" class=" block">UTT</button>
+          <button id="PD1" class=" block">PD1</button>
+          <button id="PD2" class=" block">PD2</button>
+          <button id="PD3" class=" block">PD3</button>
+          <button id="PD4" class=" block">PD4</button>
+          <button id="PD5" class=" block">PD5</button>
+          <button id="PD7" class=" block">PD7</button>
           <div class=" item-b">
-            <img class="arrow" src="../images/right-arrow.png" alt="">
+            <img class="arrow" src="static/right-arrow.png" alt="">
           </div>
         </div>
       </div>
@@ -260,42 +267,79 @@
     </a>
   </div>
 
-  <!-- <div id="btn-dep" class="grid-container">
-    <div class=" item-a ">1</div>
-    <button class=" block" onclick="dial()">ACC</button>
-    <button class=" block">APQP</button>
-    <button class=" block">BPD</button>
-    <button class=" block">CED</button>
-    <button class=" block">CGD</button>
-    <button class=" block">EXE</button>
-    <button class=" block">GAD</button>
-    <button class=" block">GDC</button>
-    <button class=" block">HRM</button>
-    <button class=" block">ICT</button>
-    <button class=" block">LGS</button>
-    <button class=" block">MAD</button>
-    <button class=" block">HRM</button>
-    <button class=" block">ICT</button>
-    <button class=" block">LGS</button>
-    <button class=" block">MAD</button>
-    <div class=" item-b  ">1</div>
-  </div> -->
-
-
-
   <div id='call-img' class="logo-dial">
-    <img id='call-img-logo' src="../static/ring_ring.gif">
+    <img id='call-img-logo' src="/static/ring_ring.gif">
   </div>
 
   <div style="margin-top: 30px;">
-    <button id="endcall" class="btn-end">End Call</button>
+    <button id="button-hangup-outgoing" class="btn-end">End Call</button>
   </div>
 
-  <button id="ini-btn" onclick="test()">initial</button>
-  <!--<img src="{{ url_for('rec') }}">-->
 
-  <!-- ajax -->
+  <!-- Init button is here !! -->
+  <header>
+    <button id="startup-button" style="display: none">Start up the Device</button>
+  </header>
+  <main id="controls">
+    <section class="left-column" id="info" style="display: none">
+      <h2>Your Device Info</h2>
+      <div id="client-name"></div>
+      <div id="output-selection" class="hide">
+        <label>Ringtone Devices</label>
+        <select id="ringtone-devices" multiple></select>
+        <label>Speaker Devices</label>
+        <select id="speaker-devices" multiple></select><br />
+        <button id="get-devices" >Seeing "Unknown" devices?</button>
+      </div>
+    </section>
+    <section class="center-column" style="display: none">
+      <h2 class="instructions">Make a Call</h2>
+      <div id="call-controls" class="hide">
+        <form>
+          <label for="phone-number" style="display:none">Enter a phone number or client name</label>
+          <input id="phone-number" type="text" value="+66908916039" />
+          <!-- <button id="button-call" type="submit">Call</button> -->
+        </form>
+        <button id="button-hangup-outgoing" class="hide">Hang Up</button>
+        <div id="incoming-call" class="hide" style="display:none">
+          <p class="instructions">
+            Incoming Call from <span id="incoming-number"></span>
+          </p>
+          <button id="button-accept-incoming">Accept</button>
+          <button id="button-reject-incoming">Reject</button>
+          <button id="button-hangup-incoming" class="hide">Hangup</button>
+        </div>
+        <div id="volume-indicators" class="hide" style="display:none">
+          <label>Mic Volume</label>
+          <div id="input-volume"></div>
+          <br /><br />
+          <label>Speaker Volume</label>
+          <div id="output-volume"></div>
+        </div>
+      </div>
+    </section>
+    <section class="right-column">
+      <h2>Event Log</h2>
+      <div class="hide" id="log"></div>
+    </section>
+  </main>
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Display Calling -->
+
+  <script type="text/javascript">
+
+    window.onload = function () {
+      document.getElementById('call-img').style.display = "none";
+      document.getElementById('button-hangup-outgoing').style.display = "none";
+      var scriptTag = document.createElement("script");
+      scriptTag.src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js";
+      document.getElementsByTagName("head")[0].appendChild(scriptTag);
+    }
+  </script>
+
 
   <!-- js -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -309,28 +353,25 @@
     crossorigin="anonymous"></script>
 
 
-  <script>
 
-    window.onload = function () {
-      document.getElementById('call-img').style.display = "none";
-      document.getElementById('endcall').style.display = "none";
-      document.getElementById('ini-btn').click(); // เปลี่ยนตรงนี้เป็น id ของปุ่ม initial
-      var scriptTag = document.createElement("script");
-      scriptTag.src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js";
-      document.getElementsByTagName("head")[0].appendChild(scriptTag);
-      document.getElementById('ini-btn').style.display = "none";  // คลิกเสร็จแล้วซ่อน
-    }
-    function test() {
-      //alert("initial clicked");
-    }
+  <script type="text/javascript" src="static/twilio.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="static/twilio.min.js"></script>
+  <!-- <script src="static/quickstart.js"></script> -->
+  <!-- Auto Initial is completed -->
+
+  <!-- 
+<script>
     function dial() {
       var topic = document.getElementById("topic");
       var dep1 = document.getElementById("btn-dep-1");
       var dep2 = document.getElementById("btn-dep-2");
       var dep3 = document.getElementById("btn-dep-3");
       var ini = document.getElementById("ini-btn");
-      var end = document.getElementById("endcall");
+      var end = document.getElementById("button-hangup-outgoing");
       var body = document.getElementsByTagName("body")[0];
       topic.style.display = "none";
       dep1.style.display = "none";
@@ -342,7 +383,558 @@
       document.getElementById('call-img').style.display = "block";
 
     }
+  </script> -->
+
+
+  <script>
+
+    $(function () {
+
+      // get varable all buttons
+      // <!-- APQP BPD CED CGD EXE GAD GDC HRM ICT LGS MAD-->
+      const APQP = document.getElementById("APQP");
+      const BPD = document.getElementById("BPD");
+      const CED = document.getElementById("CED");
+      const CGD = document.getElementById("CGD");
+      const EXE = document.getElementById("EXE");
+      const GAD = document.getElementById("GAD");
+      const GDC = document.getElementById("GDC");
+      const HRM = document.getElementById("HRM");
+      const ICT = document.getElementById("ICT");
+      const LGS = document.getElementById("LGS");
+      const MAD = document.getElementById("MAD");
+
+      // <!--MTN  PCS PED PCL PSD PUR QAD QCD QMS RND SHE SNM-->
+      const MTN = document.getElementById("MTN");
+      const PCS = document.getElementById("PCS");
+      const PED = document.getElementById("PED");
+      const PCL = document.getElementById("PCL");
+      const PSD = document.getElementById("PSD");
+      const PUR = document.getElementById("PUR");
+      const QAD = document.getElementById("QAD");
+      const QCD = document.getElementById("QCD");
+      const QMS = document.getElementById("QMS");
+      const RND = document.getElementById("RND");
+      const SHE = document.getElementById("SHE");
+      const SNM = document.getElementById("SNM");
+
+      // <!-- TLD TPM  UTT PD1 PD2 PD3 PD4 PD5 PD7-->
+      const TLD = document.getElementById("TLD");
+      const TPM = document.getElementById("TPM");
+      const UTT = document.getElementById("UTT");
+      const PD1 = document.getElementById("PD1");
+      const PD2 = document.getElementById("PD2");
+      const PD3 = document.getElementById("PD3");
+      const PD4 = document.getElementById("PD4");
+      const PD5 = document.getElementById("PD5");
+      const PD7 = document.getElementById("PD7");
+   
+      // varaiables other buttons
+      const speakerDevices = document.getElementById("speaker-devices");
+      const ringtoneDevices = document.getElementById("ringtone-devices");
+      const outputVolumeBar = document.getElementById("output-volume");
+      const inputVolumeBar = document.getElementById("input-volume");
+      const volumeIndicators = document.getElementById("volume-indicators");
+      const callButton = document.getElementById("button-call");
+      const outgoingCallHangupButton = document.getElementById("button-hangup-outgoing");
+      const callControlsDiv = document.getElementById("call-controls");
+      const audioSelectionDiv = document.getElementById("output-selection");
+      const getAudioDevicesButton = document.getElementById("get-devices");
+      const logDiv = document.getElementById("log");
+      const incomingCallDiv = document.getElementById("incoming-call");
+      const incomingCallHangupButton = document.getElementById(
+        "button-hangup-incoming"
+      );
+      const incomingCallAcceptButton = document.getElementById(
+        "button-accept-incoming"
+      );
+      const incomingCallRejectButton = document.getElementById(
+        "button-reject-incoming"
+      );
+      const phoneNumberInput = document.getElementById("phone-number");
+      const incomingPhoneNumberEl = document.getElementById("incoming-number");
+      const startupButton = document.getElementById("startup-button"); //need to click on load
+
+      let device;
+      let token;
+
+      // Event Listeners
+      // <!-- APQP BPD CED CGD EXE GAD GDC HRM ICT LGS MAD-->
+      callButton.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      APQP.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+
+      BPD.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      CED.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      EXE.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      GAD.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      GDC.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      HRM.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      ICT.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      LGS.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      MAD.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+    // <!--MTN  PCS PED PCL PSD PUR QAD QCD QMS RND SHE SNM-->
+      MTN.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      PCS.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      PED.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+      
+      PCL.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      PSD.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      PUR.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      QAD.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      QCD.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      QMS.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      RND.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+      
+      SHE.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+      SNM.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+
+     // <!-- TLD TPM  UTT PD1 PD2 PD3 PD4 PD5 PD7-->
+      TLD.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+      
+      TPM.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+      
+      UTT.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall(); 
+      };
+      
+      PD1.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+      
+      PD2.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+      
+      PD3.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+      
+      PD4.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+      
+      PD5.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+      
+      PD7.onclick = (e) => {
+        e.preventDefault();
+        makeOutgoingCall();
+      };
+
+
+      getAudioDevicesButton.onclick = getAudioDevices;
+      speakerDevices.addEventListener("change", updateOutputDevice);
+      ringtoneDevices.addEventListener("change", updateRingtoneDevice);
+
+      // SETUP STEP 1:
+      // Browser client should be started after a user gesture
+      // to avoid errors in the browser console re: AudioContext
+
+      //window.onload = (startupClient);
+      startupButton.addEventListener("click", startupClient);
+
+      // SETUP STEP 2: Request an Access Token
+      async function startupClient() {
+        log("Requesting Access Token...");
+
+        try {
+          const data = await $.getJSON("/token");
+          log("Got a token.");
+          token = data.token;
+          setClientNameUI(data.identity);
+          intitializeDevice();
+        } catch (err) {
+          console.log(err);
+          log("An error occurred. See your browser console for more information.");
+        }
+      }
+
+      // SETUP STEP 3:
+      // Instantiate a new Twilio.Device
+      function intitializeDevice() {
+        logDiv.classList.remove("hide");
+        log("Initializing device");
+        device = new Twilio.Device(token, {
+          debug: true,
+          answerOnBridge: true,
+          // Set Opus as our preferred codec. Opus generally performs better, requiring less bandwidth and
+          // providing better audio quality in restrained network conditions. Opus will be default in 2.0.
+          codecPreferences: ["opus", "pcmu"],
+        });
+
+        addDeviceListeners(device);
+
+        // Device must be registered in order to receive incoming calls
+        device.register();
+      }
+
+      // SETUP STEP 4:
+      // Listen for Twilio.Device states
+      function addDeviceListeners(device) {
+        device.on("registered", function () {
+          log("Twilio.Device Ready to make and receive calls!");
+          callControlsDiv.classList.remove("hide");
+        });
+
+        device.on("error", function (error) {
+          log("Twilio.Device Error: " + error.message);
+        });
+
+        device.on("incoming", handleIncomingCall);
+
+        device.audio.on("deviceChange", updateAllAudioDevices.bind(device));
+
+        // Show audio selection UI if it is supported by the browser.
+        if (device.audio.isOutputSelectionSupported) {
+          audioSelectionDiv.classList.remove("hide");
+        }
+      }
+
+      // MAKE AN OUTGOING CALL
+
+      async function makeOutgoingCall() {
+            const topic = document.getElementById("topic");
+            const dep1 = document.getElementById("btn-dep-1");
+            const dep2 = document.getElementById("btn-dep-2");
+            const dep3 = document.getElementById("btn-dep-3");
+
+            const end = document.getElementById("button-hangup-outgoing");
+            const body = document.getElementsByTagName("body")[0];
+            topic.style.display = "none";
+            dep1.style.display = "none";
+            dep2.style.display = "none";
+            dep3.style.display = "none";
+
+            end.style.display = "block";
+            body.style.backgroundColor = "#2973d9";
+            document.getElementById('call-img').style.display = "block";
+
+
+        var params = {
+          // get the phone number to call from the DOM
+          To: phoneNumberInput.value,
+        };
+
+
+
+
+        if (device) {
+          log(`Attempting to call ${params.To} ...`);
+
+          // Twilio.Device.connect() returns a Call object
+          const call = await device.connect({ params });
+
+          // add listeners to the Call
+          // "accepted" means the call has finished connecting and the state is now "open"
+          call.on("accept", updateUIAcceptedOutgoingCall);
+          call.on("disconnect", updateUIDisconnectedOutgoingCall);
+          call.on("cancel", updateUIDisconnectedOutgoingCall);
+          call.on("reject", updateUIDisconnectedOutgoingCall);
+
+          outgoingCallHangupButton.onclick = () => {
+            log("Hanging up ...");
+            call.disconnect();
+            window.open('http://localhost:5000/','_blank').focus();
+            close();
+            //location.reload();
+            //close();
+            
+          };
+
+        } else {
+          log("Unable to make call.");
+        }
+      }
+
+      function updateUIAcceptedOutgoingCall(call) {
+        log("Call in progress ...");
+        callButton.disabled = true;
+        outgoingCallHangupButton.classList.remove("hide");
+        volumeIndicators.classList.remove("hide");
+        bindVolumeIndicators(call);
+      }
+        //ต้องวางสาย แล้ว redic --> ตาขยับ
+      function updateUIDisconnectedOutgoingCall() {
+        log("Call disconnected.");
+        callButton.disabled = false;
+        outgoingCallHangupButton.classList.add("hide");
+        volumeIndicators.classList.add("hide");
+        window.open('http://localhost:5000/','_blank').focus();
+        close();
+        //location.reload();
+
+      }
+
+      // HANDLE INCOMING CALL
+
+      function handleIncomingCall(call) {
+        log(`Incoming call from ${call.parameters.From}`);
+
+        //show incoming call div and incoming phone number
+        incomingCallDiv.classList.remove("hide");
+        incomingPhoneNumberEl.innerHTML = call.parameters.From;
+
+        //add event listeners for Accept, Reject, and Hangup buttons
+        incomingCallAcceptButton.onclick = () => {
+          acceptIncomingCall(call);
+        };
+
+        incomingCallRejectButton.onclick = () => {
+          rejectIncomingCall(call);
+        };
+
+        incomingCallHangupButton.onclick = () => {
+          hangupIncomingCall(call);
+        };
+
+        // add event listener to call object
+        call.on("cancel", handleDisconnectedIncomingCall);
+        call.on("disconnect", handleDisconnectedIncomingCall);
+        call.on("reject", handleDisconnectedIncomingCall);
+      }
+
+      // ACCEPT INCOMING CALL
+
+      function acceptIncomingCall(call) {
+        call.accept();
+
+        //update UI
+        log("Accepted incoming call.");
+        incomingCallAcceptButton.classList.add("hide");
+        incomingCallRejectButton.classList.add("hide");
+        incomingCallHangupButton.classList.remove("hide");
+      }
+
+      // REJECT INCOMING CALL
+
+      function rejectIncomingCall(call) {
+        call.reject();
+        log("Rejected incoming call");
+        resetIncomingCallUI();
+      }
+
+      // HANG UP INCOMING CALL
+
+      function hangupIncomingCall(call) {
+        call.disconnect();
+        log("Hanging up incoming call");
+        resetIncomingCallUI();
+      }
+
+      // HANDLE CANCELLED INCOMING CALL
+
+      function handleDisconnectedIncomingCall() {
+        log("Incoming call ended.");
+        resetIncomingCallUI();
+      }
+
+      // MISC USER INTERFACE
+
+      // Activity log
+      function log(message) {
+        logDiv.innerHTML += `<p class="log-entry">&gt;&nbsp; ${message} </p>`;
+        logDiv.scrollTop = logDiv.scrollHeight;
+      }
+
+      function setClientNameUI(clientName) {
+        var div = document.getElementById("client-name");
+        div.innerHTML = `Your client name: <strong>${clientName}</strong>`;
+      }
+
+      function resetIncomingCallUI() {
+        incomingPhoneNumberEl.innerHTML = "";
+        incomingCallAcceptButton.classList.remove("hide");
+        incomingCallRejectButton.classList.remove("hide");
+        incomingCallHangupButton.classList.add("hide");
+        incomingCallDiv.classList.add("hide");
+      }
+
+      // AUDIO CONTROLS
+
+      async function getAudioDevices() {
+        await navigator.mediaDevices.getUserMedia({ audio: true });
+        updateAllAudioDevices.bind(device);
+      }
+
+      function updateAllAudioDevices() {
+        if (device) {
+          updateDevices(speakerDevices, device.audio.speakerDevices.get());
+          updateDevices(ringtoneDevices, device.audio.ringtoneDevices.get());
+        }
+      }
+
+      function updateOutputDevice() {
+        const selectedDevices = Array.from(speakerDevices.children)
+          .filter((node) => node.selected)
+          .map((node) => node.getAttribute("data-id"));
+
+        device.audio.speakerDevices.set(selectedDevices);
+      }
+
+      function updateRingtoneDevice() {
+        const selectedDevices = Array.from(ringtoneDevices.children)
+          .filter((node) => node.selected)
+          .map((node) => node.getAttribute("data-id"));
+
+        device.audio.ringtoneDevices.set(selectedDevices);
+      }
+
+      function bindVolumeIndicators(call) {
+        call.on("volume", function (inputVolume, outputVolume) {
+          var inputColor = "red";
+          if (inputVolume < 0.5) {
+            inputColor = "green";
+          } else if (inputVolume < 0.75) {
+            inputColor = "yellow";
+          }
+
+          inputVolumeBar.style.width = Math.floor(inputVolume * 300) + "px";
+          inputVolumeBar.style.background = inputColor;
+
+          var outputColor = "red";
+          if (outputVolume < 0.5) {
+            outputColor = "green";
+          } else if (outputVolume < 0.75) {
+            outputColor = "yellow";
+          }
+
+          outputVolumeBar.style.width = Math.floor(outputVolume * 300) + "px";
+          outputVolumeBar.style.background = outputColor;
+        });
+      }
+
+      // Update the available ringtone and speaker devices
+      function updateDevices(selectEl, selectedDevices) {
+        selectEl.innerHTML = "";
+
+        device.audio.availableOutputDevices.forEach(function (device, id) {
+          var isActive = selectedDevices.size === 0 && id === "default";
+          selectedDevices.forEach(function (device) {
+            if (device.deviceId === id) {
+              isActive = true;
+            }
+          });
+
+          var option = document.createElement("option");
+          option.label = device.label;
+          option.setAttribute("data-id", id);
+          if (isActive) {
+            option.setAttribute("selected", "selected");
+          }
+          selectEl.appendChild(option);
+        });
+      }
+    });
+
   </script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#startup-button").click();
+  });
+</script>
 
 </body>
 
